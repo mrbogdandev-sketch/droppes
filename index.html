@@ -6,21 +6,19 @@
   <meta name="theme-color" content="#f8f8f6">
   <title>FILEDROP — конвертер файлов</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="lame.min.js" defer></script>
   <script src="main.js" defer></script>
 </head>
 <body>
   <main class="app">
     <header class="topbar"><a class="wordmark" href="#" aria-label="Filedrop"><img src="logo.svg" alt="FILEDROP"></a></header>
-    <section class="intro"><h1>Каждому файлу —<br><span>свой формат.</span></h1></section>
+    <section class="intro"><h1>Каждому файлу —<br><span>свой формат.</span></h1><p class="lead">Изображения, документы и таблицы. Без видео и аудио.</p></section>
     <section class="dropzone" id="dropzone" tabindex="0" aria-label="Перетащите файлы или выберите на устройстве">
       <div class="drop-inner"><div class="upload-icon" aria-hidden="true"><img src="filestodrop.svg" alt=""></div><h2>Перетащите файлы сюда</h2><p>или <button class="text-button" id="browse">выберите на устройстве</button></p></div>
-      <input id="fileInput" type="file" multiple hidden>
+      <input id="fileInput" type="file" multiple hidden accept="image/*,.svg,.ico,.md,.markdown,.txt,.csv,.tsv,.json,.html,.xml,.log">
     </section>
-    <section class="files-section" id="filesSection" hidden><div class="section-heading"><h2>Ваши файлы <span id="fileCount"></span></h2><button class="clear-button" id="clearAll">Очистить</button></div><div id="fileList" class="file-list"></div><div class="footer-note"><span id="status">Готово к конвертации</span><button class="convert-button" id="convertAll">Конвертировать <span aria-hidden="true">↗</span></button></div></section>
+    <section class="files-section" id="filesSection" hidden><div class="section-heading"><h2>Ваши файлы <span id="fileCount"></span></h2><button class="clear-button" id="clearAll">Очистить</button></div><div id="fileList" class="file-list"></div><div class="image-options"><label>Качество <input id="quality" type="range" min="20" max="100" value="82"><span id="qualityValue">82%</span></label><label>Макс. ширина <select id="maxWidth"><option value="0">Оригинал</option><option value="2560">2560 px</option><option value="1920">1920 px</option><option value="1280">1280 px</option><option value="800">800 px</option></select></label></div><div class="footer-note"><span id="status">Готово к конвертации</span><button class="convert-button" id="convertAll">Конвертировать <span aria-hidden="true">↗</span></button></div></section>
     <footer class="bottom"><span>Файлы не покидают ваше устройство</span></footer>
   </main>
-  <svg class="filter-defs" aria-hidden="true" width="0" height="0"><filter id="rippleDisplacement" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="8" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
